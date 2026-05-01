@@ -754,6 +754,22 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self.wfile.write(body)
+            except FileNotFoundError:
+                try:
+                    payload = run_battery_strategy_for_date(date.today(), forecast_base_url=self.service_base_url())
+                    body = json.dumps(payload).encode("utf-8")
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/json; charset=utf-8")
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers()
+                    self.wfile.write(body)
+                except Exception as exc:
+                    body = json.dumps({"error": str(exc)}).encode("utf-8")
+                    self.send_response(500)
+                    self.send_header("Content-Type", "application/json; charset=utf-8")
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers()
+                    self.wfile.write(body)
             except Exception as exc:
                 body = json.dumps({"error": str(exc)}).encode("utf-8")
                 self.send_response(500)
@@ -789,7 +805,6 @@ def main() -> int:
     mimetypes.add_type("text/javascript", ".js")
     host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "8765"))
-    ensure_default_battery_strategy_run()
     server = ThreadingHTTPServer((host, port), Handler)
     print(f"Forecast dashboard: http://{host}:{port}/index.html")
     server.serve_forever()
