@@ -1,0 +1,64 @@
+{
+  "created_at": "2026-04-29T23:37:15",
+  "dataset": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/dataset_hist28_pred7.npz",
+  "feature_names": [
+    "same_slot_price_lag_day_7",
+    "same_slot_price_lag_day_6",
+    "same_slot_price_lag_day_5",
+    "same_slot_price_lag_day_4",
+    "same_slot_price_lag_day_3",
+    "same_slot_price_lag_day_2",
+    "same_slot_price_lag_day_1",
+    "same_slot_hist_mean",
+    "same_slot_hist_std",
+    "same_slot_hist_min",
+    "same_slot_hist_max",
+    "last_day_mean",
+    "last_day_min",
+    "last_day_max",
+    "last_day_std",
+    "hist_max_temp_mean_28d",
+    "hist_max_temp_last",
+    "hist_min_temp_mean_28d",
+    "hist_min_temp_last",
+    "hist_avg_temp_mean_28d",
+    "hist_avg_temp_last",
+    "future_max_temp",
+    "future_min_temp",
+    "future_avg_temp",
+    "forecast_day",
+    "slot",
+    "slot_sin",
+    "slot_cos",
+    "forecast_day_sin",
+    "forecast_day_cos"
+  ],
+  "train_samples": 3253,
+  "test_samples": 814,
+  "train_rows_long": 1093008,
+  "test_rows_long": 273504,
+  "metrics": {
+    "Persistence": {
+      "MAE": 87.30372619628906,
+      "RMSE": 688.3521118164062,
+      "MAPE_%": 1396.722412109375,
+      "sMAPE_%": 66.15306091308594
+    },
+    "LightGBM": {
+      "MAE": 63.0090446472168,
+      "RMSE": 490.26165771484375,
+      "MAPE_%": 1533.7191162109375,
+      "sMAPE_%": 56.34067153930664
+    },
+    "XGBoost": {
+      "MAE": 63.49346923828125,
+      "RMSE": 490.92779541015625,
+      "MAPE_%": 1526.7735595703125,
+      "sMAPE_%": 56.37702178955078
+    }
+  },
+  "artifacts": {
+    "LightGBM": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/models/lightgbm_long_hist28_pred7.joblib",
+    "XGBoost": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/models/xgboost_long_hist28_pred7.joblib"
+  }
+}

@@ -1,0 +1,45 @@
+# macOS / editor noise
+.DS_Store
+*.swp
+*.tmp
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*secret*
+*secrets*
+*api_key*
+*apikey*
+*key.txt
+
+# Notebook files may contain historical hardcoded API keys.
+*.ipynb
+.ipynb_checkpoints/
+
+# Generated strategy runs and local outputs
+BatteryStrategy/runs/
+BatteryStrategy/outputs/
+
+# Large model/training artifacts not needed for dashboard deployment
+ModelTraining_7day/models/arima_slotwise_48models.joblib
+ModelTraining_7day/dataset_hist28_pred7.npz
+ModelTraining_7day/predictions/
+ModelTraining_7day/__pycache__/
+
+# Large LLM experiment datasets and raw prompt dumps
+DATASET for experiment/
+ResultCSV/
+
+# Raw construction duplicate datasets
+NSW-EPNEWS_RawDatasetConstruct/
+
+# Experiment caches
+NSW-EPNEWS_ExperimentCodebase/__pycache__/

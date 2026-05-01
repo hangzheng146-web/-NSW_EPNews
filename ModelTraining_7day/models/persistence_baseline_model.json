@@ -1,0 +1,46 @@
+{
+  "model_name": "persistence_baseline",
+  "created_at": "2026-04-29T23:15:48",
+  "strategy": "predict future 7 days by copying the most recent 7 historical days",
+  "dataset": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/dataset_hist28_pred7.npz",
+  "metadata": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/dataset_hist28_pred7_metadata.csv",
+  "train_ratio": 0.8,
+  "split_idx": 3253,
+  "train_samples": 3253,
+  "test_samples": 814,
+  "input_shapes": {
+    "X_price_history": [
+      4067,
+      28,
+      48
+    ],
+    "X_temp_history": [
+      4067,
+      28,
+      2
+    ],
+    "X_future_features": [
+      4067,
+      7,
+      6
+    ],
+    "y": [
+      4067,
+      7,
+      48
+    ]
+  },
+  "uses_features": {
+    "historical_half_hour_prices": true,
+    "historical_max_min_avg_temperature": false,
+    "future_max_min_avg_temperature": false,
+    "calendar_features": false
+  },
+  "note": "Persistence baseline has no learned numeric weights; this JSON is the reproducible model artifact.",
+  "overall_metrics": {
+    "MAE": 87.30372619628906,
+    "RMSE": 688.3521118164062,
+    "MAPE_%": 1396.722412109375,
+    "sMAPE_%": 66.15306091308594
+  }
+}

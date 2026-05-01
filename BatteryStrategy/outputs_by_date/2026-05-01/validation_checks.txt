@@ -1,0 +1,16 @@
+Battery strategy validation checks
+generated_at: 2026-05-01 18:43:05
+forecast_points: 336
+dispatch_rows: 336
+soc_min_limit_mwh: 10.0
+soc_max_limit_mwh: 90.0
+max_charge_power_mw: 50.0
+max_discharge_power_mw: 50.0
+
+warnings:
+- none
+
+errors:
+- none
+
+status: PASS

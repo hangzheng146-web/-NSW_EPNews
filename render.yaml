@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: nsw-price-battery-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd ForecastDashboard && HOST=0.0.0.0 python server.py
+    plan: starter

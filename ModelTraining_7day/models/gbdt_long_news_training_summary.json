@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-04-30T00:03:05",
+  "dataset": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/dataset_hist28_pred7.npz",
+  "news": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/CollectedData/Classified news/allnews2026.csv",
+  "feature_definition": "direct multi-step long-format model with historical price, temperature, and historical news features",
+  "news_features": [
+    "news_count_28d",
+    "news_level_1_28d",
+    "news_level_2_28d",
+    "news_level_3_28d",
+    "news_unknown_28d",
+    "news_count_7d",
+    "news_level_1_7d",
+    "news_level_2_7d",
+    "news_level_3_7d",
+    "news_unknown_7d"
+  ],
+  "train_samples": 3253,
+  "test_samples": 814,
+  "metrics": {
+    "LightGBM_news": {
+      "MAE": 67.12448120117188,
+      "RMSE": 507.2402648925781,
+      "MAPE_%": 1360.3126220703125,
+      "sMAPE_%": 57.945030212402344
+    },
+    "XGBoost_news": {
+      "MAE": 63.9479866027832,
+      "RMSE": 492.2484436035156,
+      "MAPE_%": 1390.0601806640625,
+      "sMAPE_%": 58.1934700012207
+    }
+  },
+  "artifacts": {
+    "LightGBM_news": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/models/lightgbm_long_news_hist28_pred7.joblib",
+    "XGBoost_news": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/models/xgboost_long_news_hist28_pred7.joblib"
+  }
+}

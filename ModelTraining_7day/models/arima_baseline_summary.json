@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-04-29T23:55:27",
+  "model_name": "slotwise_arima",
+  "order": [
+    1,
+    0,
+    1
+  ],
+  "strategy": "Fit one ARIMA model per half-hour slot on chronological training data; forecast slot-wise future daily values.",
+  "train_samples": 3253,
+  "test_samples": 814,
+  "metrics": {
+    "MAE": 66.62061309814453,
+    "RMSE": 492.5846252441406,
+    "MAPE_%": 2980.1298828125,
+    "sMAPE_%": 59.956634521484375
+  },
+  "metrics_by_day": [
+    {
+      "forecast_day": 1,
+      "MAE": 66.53950500488281,
+      "RMSE": 492.5754089355469,
+      "MAPE_%": 2974.236083984375,
+      "sMAPE_%": 59.80181121826172
+    },
+    {
+      "forecast_day": 2,
+      "MAE": 66.57667541503906,
+      "RMSE": 492.58056640625,
+      "MAPE_%": 2974.569091796875,
+      "sMAPE_%": 59.86240005493164
+    },
+    {
+      "forecast_day": 3,
+      "MAE": 66.6081314086914,
+      "RMSE": 492.5842590332031,
+      "MAPE_%": 2974.54248046875,
+      "sMAPE_%": 59.90217971801758
+    },
+    {
+      "forecast_day": 4,
+      "MAE": 66.6516342163086,
+      "RMSE": 492.5892333984375,
+      "MAPE_%": 2977.128662109375,
+      "sMAPE_%": 59.99016571044922
+    },
+    {
+      "forecast_day": 5,
+      "MAE": 66.68118286132812,
+      "RMSE": 492.59246826171875,
+      "MAPE_%": 2975.727783203125,
+      "sMAPE_%": 60.06307601928711
+    },
+    {
+      "forecast_day": 6,
+      "MAE": 66.65599060058594,
+      "RMSE": 492.588623046875,
+      "MAPE_%": 2991.949951171875,
+      "sMAPE_%": 60.03688049316406
+    },
+    {
+      "forecast_day": 7,
+      "MAE": 66.63117218017578,
+      "RMSE": 492.58197021484375,
+      "MAPE_%": 2992.755615234375,
+      "sMAPE_%": 60.03992462158203
+    }
+  ],
+  "fallback_count": 0,
+  "prediction_file": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/predictions/arima_predictions_test.npz",
+  "model_file": "/Users/dezhen/Desktop/EFP2/ NSW_EPNews/ModelTraining_7day/models/arima_slotwise_48models.joblib"
+}

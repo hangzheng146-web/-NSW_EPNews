@@ -1,0 +1,13 @@
+metric,value,unit
+total_charge_mwh_grid,42.105263,MWh
+total_discharge_mwh_grid,0.0,MWh
+total_charge_cost,1123.276316,AUD
+total_discharge_revenue,0.0,AUD
+total_cycle_cost,0.0,AUD
+total_net_revenue,-1123.276316,AUD
+charge_intervals,2,interval
+discharge_intervals,0,interval
+spike_risk_intervals,0,interval
+equivalent_discharge_cycles,0.0,cycle
+initial_soc,50.0,MWh
+final_soc,90.0,MWh

@@ -1,0 +1,14 @@
+parameter,value,unit
+capacity_mwh,100.0,MWh
+max_charge_power_mw,50.0,MW
+max_discharge_power_mw,50.0,MW
+initial_soc_mwh,50.0,MWh
+min_soc_mwh,10.0,MWh
+max_soc_mwh,90.0,MWh
+charge_efficiency,0.95,ratio
+discharge_efficiency,0.95,ratio
+cycle_cost_aud_per_mwh,10.0,AUD/MWh
+interval_hours,0.5,hour
+low_price_threshold,30.0,AUD/MWh
+high_price_threshold,150.0,AUD/MWh
+spike_price_threshold,300.0,AUD/MWh
