@@ -690,6 +690,19 @@ def run_battery_strategy_for_date(forecast_start: date, forecast_base_url: str |
     return payload
 
 
+def ensure_default_battery_strategy_run() -> None:
+    today = date.today()
+    output_dir = BATTERY_RUN_ROOT / today.strftime("%Y-%m-%d")
+    files = battery_strategy_files(output_dir)
+    required = [files["battery_parameters"], files["price_forecast_used"], files["battery_dispatch_result"], files["soc_curve"], files["revenue_summary"], files["validation_checks"], files["run_metadata"]]
+    if all(path.exists() for path in required):
+        return
+    try:
+        run_battery_strategy_for_date(today)
+    except Exception as exc:
+        print(f"Warning: default battery strategy warm-up skipped: {exc}")
+
+
 class Handler(SimpleHTTPRequestHandler):
     def service_base_url(self) -> str:
         scheme = self.headers.get("X-Forwarded-Proto", "http")
@@ -765,6 +778,7 @@ def main() -> int:
     mimetypes.add_type("text/javascript", ".js")
     host = os.environ.get("HOST", "127.0.0.1")
     port = int(os.environ.get("PORT", "8765"))
+    ensure_default_battery_strategy_run()
     server = ThreadingHTTPServer((host, port), Handler)
     print(f"Forecast dashboard: http://{host}:{port}/index.html")
     server.serve_forever()
