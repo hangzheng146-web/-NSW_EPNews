@@ -589,6 +589,17 @@ def battery_strategy_payload(output_dir: Path = BATTERY_OUTPUT_DIR, forecast_sta
     files = battery_strategy_files(output_dir)
     required = {name: path for name, path in files.items() if name != "run_metadata"}
     missing = [name for name, path in required.items() if not path.exists()]
+    if missing and output_dir == BATTERY_OUTPUT_DIR:
+        run_dirs = sorted(
+            [path for path in BATTERY_RUN_ROOT.iterdir() if path.is_dir()],
+            key=lambda path: path.name,
+            reverse=True,
+        )
+        for run_dir in run_dirs:
+            run_files = battery_strategy_files(run_dir)
+            run_required = {name: path for name, path in run_files.items() if name != "run_metadata"}
+            if all(path.exists() for path in run_required.values()):
+                return battery_strategy_payload(output_dir=run_dir, forecast_start=forecast_start or run_dir.name)
     if missing:
         raise FileNotFoundError(f"BatteryStrategy 输出文件缺失：{', '.join(missing)}")
 
